@@ -21,7 +21,7 @@ $ gear restart sinatra-app-service
 $ gear stop sinatra-app-service
 ```
 
-Visit: http://localhost:18081
+* Visit: http://localhost:18081
 
 ## Connecting to the container using SSH (isolate container)
 
@@ -42,7 +42,7 @@ $ watch gear list-units
 $ journalctl -u ctr-wordpress-frontend-1 -n 50 -f
 ```
 
-Visit: http://localhost:18080/wordpress
+* Visit: http://localhost:18080/wordpress
 
 ## Loadbalancing between containers (HAProxy + Sinatra demo)
 
@@ -54,8 +54,8 @@ $ watch gear list-units
 $ journalctl -u ctr-app-balancer-1 -n 50 -f
 ```
 
-Visit: http://localhost:18082/ (*Application*)
-Visit: http://localhost:18083/haproxy?stats (*HAProxy status: admin/password*)
+* Visit: http://localhost:18082/ (*Application*)
+* Visit: http://localhost:18083/haproxy?stats (*HAProxy status: admin/password*)
 
 ```
 $ ab -n 1000 -c 50 http://localhost:18082
