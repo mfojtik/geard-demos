@@ -1,0 +1,44 @@
+{
+    "IdPrefix": "app-",
+    "Containers": [
+        {
+            "Name": "balancer",
+            "Count": 1,
+            "Image": "openshift/centos-haproxy-simple-balancer",
+            "PublicPorts": [
+                {
+                    "Internal": 80,
+                    "External": 8082
+                },
+                {
+                    "Internal": 1936,
+                    "External": 8083
+                }
+ 
+            ],
+            "Links": [
+                {
+                    "To": "backend",
+                    "NonLocal": true,
+                    "AliasPorts": [
+                        {
+                            "Internal": 9292,
+                            "External": 8080
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Name": "backend",
+            "Count": 3,
+            "Image": "sinatra-app",
+            "PublicPorts": [
+                {
+                    "Internal": 9292,
+                    "External": 0
+                }
+            ]
+        }
+    ]
+}

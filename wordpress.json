@@ -1,0 +1,37 @@
+{
+    "IdPrefix": "wordpress-",
+    "containers": [
+        {
+            "name": "frontend",
+            "count": 1,
+            "image": "demo/wordpress",
+            "publicports": [
+                {
+                    "internal": 80,
+                    "external": 8080
+                }
+            ],
+            "links": [
+                {
+                    "to": "mysql",
+                    "aliasports": [
+                        {
+                            "internal": 3306,
+                            "external": 3306
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "database",
+            "count": 1,
+            "image": "demo/mysql",
+            "publicports": [
+                {
+                    "internal": 3306
+                }
+            ]
+        }
+    ]
+}
