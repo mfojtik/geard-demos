@@ -2,7 +2,7 @@
 
 All demos use Vagrant setup with ports `1808[0-4]` forwarded from guest to host.
 
-## Build the Docker image from GIT sources
+### Build the Docker image from GIT sources
 
 STI_SCRIPTS_URL: https://github.com/openshift/ruby-19-centos/tree/master/.sti/bin
 ```
@@ -23,7 +23,7 @@ $ gear stop sinatra-app-service
 
 * Visit: http://localhost:18081
 
-## Connecting to the container using SSH (isolate container)
+### Connecting to the container using SSH (isolate container)
 
 ```
 $ ssh-keygen
@@ -32,7 +32,7 @@ $ gear add-keys --key-file=/root/.ssh/id_rsa.pub my-app
 $ ssh ctr-my-app@localhost
 ```
 
-## Linking two container togerher (Wordpress + MySQL demo)
+### Linking two container togerher (Wordpress + MySQL demo)
 
 ```
 $ gear deploy demo/wordpress.json
@@ -44,7 +44,7 @@ $ journalctl -u ctr-wordpress-frontend-1 -n 50 -f
 
 * Visit: http://localhost:18080/wordpress
 
-## Loadbalancing between containers (HAProxy + Sinatra demo)
+### Loadbalancing between containers (HAProxy + Sinatra demo)
 
 ```
 $ gear deploy demo/balancer.json
